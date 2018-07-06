@@ -16,7 +16,7 @@
    - 将第一次签名的密文末尾加上secretKey(CoinRobots给用户提供的secretKey)
    - 对字符串再次进行md5(32小写)加密
 - sign签名算法示例
-```python
+```c
 # 请求参数
 {
 	"appId": "111",
@@ -59,14 +59,14 @@
 #### 请求参数（无）
 
 #### 示例
-```python
+```c
 # Request
 GET https://open.coinrobots.com/api/Public/ping
 # Response
 {
-	"status": "0",    # 状态码
-	"msg": "ok",      # 描述
-	"objData": null   # 返回业务参数实体
+	"status": "0",    // 状态码
+	"msg": "ok",      // 描述
+	"objData": null   // 返回业务参数实体
 }
 ```
 
@@ -81,15 +81,15 @@ GET https://open.coinrobots.com/api/Public/ping
 |userPwd|string|是|密码(md5加密32位小写)|
 
 #### 示例
-```python
+```c
 # Request
 GET https://open.coinrobots.com/api/User/loginVerify?appId=1&apiKey=2&userName=3&userPwd=4&timestamp=5&sign=6
 # Response
 {
-	"status": "0",    # 状态码
-	"msg": "ok",      # 描述
-	"objData": {      # 返回业务参数实体
-		"userId": "1234"  # -  用户id
+	"status": "0",    // 状态码
+	"msg": "ok",      // 描述
+	"objData": {      // 返回业务参数实体
+		"userId": "1234"  // -  用户id
 	}
 }
 ```
@@ -104,19 +104,19 @@ GET https://open.coinrobots.com/api/User/loginVerify?appId=1&apiKey=2&userName=3
 |userId|string|是|用户id|
 
 #### 示例
-```python
+```c
 # Request
 GET https://open.coinrobots.com/api/User/getUserInfo?appId=1&apiKey=2&userId=1234&timestamp=5&sign=6
 # Response
 {
-	"status": "0",  # 状态码
-	"msg": "ok",    # 描述
-	"objData": {    # 返回业务参数实体
-		"userName": "1234",         # -  用户名
-		"phone": "17600000000",     # -  手机号
-		"email": "abc@yeah.net",    # -  邮箱
-		"robotAddress": "0x3ef...", # -  robot地址
-		"robotBalance": "88.6712",  # -  robot余额
+	"status": "0",  // 状态码
+	"msg": "ok",    // 描述
+	"objData": {    // 返回业务参数实体
+		"userName": "1234",         // -  用户名
+		"phone": "17600000000",     // -  手机号
+		"email": "abc@yeah.net",    // -  邮箱
+		"robotAddress": "0x3ef...", // -  robot地址
+		"robotBalance": "88.6712"   // -  robot余额
 	}
 }
 ```
