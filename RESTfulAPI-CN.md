@@ -116,7 +116,7 @@ GET https://open.coinrobots.com/api/Public/getMarket?terraceId=1
 	"status": 0,      // 状态码
 	"msg": "ok",      // 描述
 	"objData": {	  // 返回业务参数实体
-		"market": [   // 支持的市场（计价币种）
+		"market": [   // -  支持的市场（计价币种）
 			"USDT",
 			"BTC",
 			"ETH",
