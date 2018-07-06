@@ -50,7 +50,7 @@ md5(32大写)签名之后末尾增加secretKey(CoinRobots给用户提供的secre
    * 服务器响应：服务器首先对用户请求数据进行参数安全校验，通过校验后根据业务逻辑将响应数据以JSON格式返回给用户。
    * 数据处理：对服务器响应数据进行处理。
 ## API参考
-### Ping
+### 1. Ping
 >测试接口服务器是否正常
 #### 请求地址
 >GET `https://open.coinrobots.com/api/Public/ping`
@@ -66,7 +66,7 @@ GET https://open.coinrobots.com/api/Public/ping
   "objData": null   // 返回业务参数实体
 }
 ```
-### 用户登录验证
+### 2. 用户登录验证
 >通过手机号或者邮箱及密码验证用户是否有效
 #### 请求地址
 >GET `https://open.coinrobots.com/api/User/loginVerify`
@@ -84,7 +84,32 @@ GET https://open.coinrobots.com/api/User/loginVerify?appId=1&apiKey=2&userName=3
   "status": "0",    // 状态码
   "msg": "ok",      // 描述
   "objData": {      // 返回业务参数实体
-    "userId": 1234  // -  用户id
+    "userId": "1234"  // -  用户id
+  }
+}
+```
+### 3. 获取用户信息
+>通过用户id获取用户的一些信息
+#### 请求地址
+>GET `https://open.coinrobots.com/api/User/getUserInfo`
+#### 请求参数
+|参数名|参数类型|必填|描述|
+|:-|:-|:-|:-|
+|userId|string|是|用户id|
+#### 示例
+```
+# Request
+GET https://open.coinrobots.com/api/User/getUserInfo?appId=1&apiKey=2&userId=1234&timestamp=5&sign=6
+# Response
+{
+  "status": "0",  // 状态码
+  "msg": "ok",    // 描述
+  "objData": {    // 返回业务参数实体
+    "userName": "1234",         // -  用户名
+    "phone": "17600000000",     // -  手机号
+    "email": "abc@yeah.net",    // -  邮箱
+    "robotAddress": "0x3ef...", // -  robot地址
+    "robotBalance": "88.6712",  // -  robot余额
   }
 }
 ```
