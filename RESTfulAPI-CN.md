@@ -1,7 +1,7 @@
 # RESTful API for CoinRobots
 ## 请求交互
-- RESTful访问的根URL：`https://open.coinrobots.com/api/`<br/>
-- 所有请求基于Https协议，请求头信息中contentType需要统一设置为：application/x-www-form-urlencoded<br/>
+- RESTful访问的根URL：`https://open.coinrobots.com/api/`
+- 所有请求基于Https协议，请求头信息中contentType需要统一设置为：application/x-www-form-urlencoded
 - 系统级参数 ***所有接口必须传系统级请求参数***
 > |参数名|参数类型|必填|描述|
 > |:-|:-|:-|:-|
@@ -16,8 +16,8 @@
    - 将第一次签名的密文末尾加上secretKey(CoinRobots给用户提供的secretKey)
    - 对字符串再次进行md5(32小写)加密
 - sign签名算法示例
-```
-请求参数
+```python
+# 请求参数
 {
 	"appId": "111",
 	"apiKey": "333",
@@ -26,7 +26,7 @@
 	......
 }
 
-排序之后
+# 排序之后
 {
 	"apiKey": "333",
 	"appId": "111",
@@ -35,13 +35,13 @@
 	......
 }
 
-拼接字符串
+# 拼接字符串
 333111test8881510043875
 
-md5(32大写)签名之后末尾增加secretKey(CoinRobots给用户提供的secretKey)
+# md5(32大写)签名之后末尾增加secretKey(CoinRobots给用户提供的secretKey)
 4C352484CDE66D12C6915A3B8A62D379dgsfgafgdsasfhwerh
 
-将上述字符串进行md5(32小写)加密
+# 将上述字符串进行md5(32小写)加密
 02d340158aadbfcc1163dbfeb07b0af8
 ```
 - 请求交互说明
@@ -49,23 +49,27 @@ md5(32大写)签名之后末尾增加secretKey(CoinRobots给用户提供的secre
    - 提交请求参数：将封装好的请求参数通过POST或GET方式提交至服务器。
    - 服务器响应：服务器首先对用户请求数据进行参数安全校验，通过校验后根据业务逻辑将响应数据以JSON格式返回给用户。
    - 数据处理：对服务器响应数据进行处理。
+
 ## API参考
+
 ### 1. Ping
 > 测试接口服务器是否正常
 #### 请求地址
 > GET `https://open.coinrobots.com/api/Public/ping`
 #### 请求参数（无）
+
 #### 示例
-```
+```python
 # Request
 GET https://open.coinrobots.com/api/Public/ping
 # Response
 {
-	"status": "0",    // 状态码
-	"msg": "ok",      // 描述
-	"objData": null   // 返回业务参数实体
+	"status": "0",    # 状态码
+	"msg": "ok",      # 描述
+	"objData": null   # 返回业务参数实体
 }
 ```
+
 ### 2. 用户登录验证
 > 通过手机号或者邮箱及密码验证用户是否有效
 #### 请求地址
@@ -75,19 +79,21 @@ GET https://open.coinrobots.com/api/Public/ping
 |:-|:-|:-|:-|
 |userName|string|是|手机号或邮箱|
 |userPwd|string|是|密码(md5加密32位小写)|
+
 #### 示例
-```
+```python
 # Request
 GET https://open.coinrobots.com/api/User/loginVerify?appId=1&apiKey=2&userName=3&userPwd=4&timestamp=5&sign=6
 # Response
 {
-	"status": "0",    // 状态码
-	"msg": "ok",      // 描述
-	"objData": {      // 返回业务参数实体
-		"userId": "1234"  // -  用户id
+	"status": "0",    # 状态码
+	"msg": "ok",      # 描述
+	"objData": {      # 返回业务参数实体
+		"userId": "1234"  # -  用户id
 	}
 }
 ```
+
 ### 3. 获取用户信息
 > 通过用户id获取用户的一些信息
 #### 请求地址
@@ -96,20 +102,21 @@ GET https://open.coinrobots.com/api/User/loginVerify?appId=1&apiKey=2&userName=3
 |参数名|参数类型|必填|描述|
 |:-|:-|:-|:-|
 |userId|string|是|用户id|
+
 #### 示例
-```
+```python
 # Request
 GET https://open.coinrobots.com/api/User/getUserInfo?appId=1&apiKey=2&userId=1234&timestamp=5&sign=6
 # Response
 {
-	"status": "0",  // 状态码
-	"msg": "ok",    // 描述
-	"objData": {    // 返回业务参数实体
-		"userName": "1234",         // -  用户名
-		"phone": "17600000000",     // -  手机号
-		"email": "abc@yeah.net",    // -  邮箱
-		"robotAddress": "0x3ef...", // -  robot地址
-		"robotBalance": "88.6712",  // -  robot余额
+	"status": "0",  # 状态码
+	"msg": "ok",    # 描述
+	"objData": {    # 返回业务参数实体
+		"userName": "1234",         # -  用户名
+		"phone": "17600000000",     # -  手机号
+		"email": "abc@yeah.net",    # -  邮箱
+		"robotAddress": "0x3ef...", # -  robot地址
+		"robotBalance": "88.6712",  # -  robot余额
 	}
 }
 ```
