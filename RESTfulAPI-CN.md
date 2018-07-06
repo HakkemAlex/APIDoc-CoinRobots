@@ -86,11 +86,11 @@ GET https://open.coinrobots.com/api/Public/getTerrace
 	"msg": "ok",      // 描述
 	"objData": [	  // 返回业务参数实体
 		{
-			"terraceId": 1,			// -  平台id
+			"terraceId": 1,		    // -  平台id
 			"terraceName": "OKEx"	// -  平台名称
 		},
 		{
-			"terraceId": 2,			// -  平台id
+			"terraceId": 2,		    // -  平台id
 			"terraceName": "火币"   // -  平台名称
 		},
 		......
