@@ -7,7 +7,7 @@
 > |:-|:-|:-|:-|
 > |appId|string|是|CoinRobots给开发者提供的appId|
 > |apiKey|string|是|CoinRobots给用户提供的apiKey|
-> |timestamp|string|是|时间戳|
+> |timestamp|string|是|时间戳（与服务器时间3分钟之内）|
 > |sign|string|是|签名|
 - sign签名算法
    - 将除签名sign以外的请求参数进行字典排序
@@ -212,6 +212,7 @@ POST https://open.coinrobots.com/api/v1/Deploy/submitPoundage
 |参数名|参数类型|必填|描述|
 |:-|:-|:-|:-|
 |userId|int|是|用户id|
+|terraceId|int|是|平台|
 |market|string|是|市场（计价币种）|
 |amount|decimal(18,8)|是|成交数量|
 |price|decimal(18,8)|是|成交均价|
