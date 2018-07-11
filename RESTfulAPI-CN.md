@@ -7,7 +7,7 @@
 > |:-|:-|:-|:-|
 > |appId|string|是|CoinRobots给开发者提供的appId|
 > |apiKey|string|是|CoinRobots给用户提供的apiKey|
-> |timestamp|string|是|时间戳（与服务器时间3分钟之内）|
+> |timestamp|string|是|时间戳（与服务器时间3分钟之内的秒级时间戳(10位)）|
 > |sign|string|是|签名|
 - sign签名算法
    - 将除签名sign以外的请求参数进行字典排序
