@@ -1,7 +1,7 @@
 # RESTful API for CoinRobots
 ## 请求交互
-- RESTful访问的根URL：`https://open.coinrobots.com/api/v1/`
-- 所有请求基于Https协议，请求头信息中contentType需要统一设置为：application/x-www-form-urlencoded
+- RESTful访问的根URL：`http://open.coinrobots.com/api/v1/`
+- 所有请求基于Http协议，请求头信息中contentType需要统一设置为：application/x-www-form-urlencoded
 - 系统级参数 ***私有接口必须传系统级请求参数***
 > |参数名|参数类型|必填|描述|
 > |:-|:-|:-|:-|
@@ -55,13 +55,13 @@
 ### 1. Ping
 > 测试接口服务器是否正常
 #### 请求地址
-> GET `https://open.coinrobots.com/api/v1/Public/ping`
+> GET `http://open.coinrobots.com/api/v1/Public/ping`
 #### 请求参数（无）
 
 #### 示例
 ```c
 # Request
-GET https://open.coinrobots.com/api/v1/Public/ping
+GET http://open.coinrobots.com/api/v1/Public/ping
 # Response
 {
 	"status": 0,      // 状态码
@@ -73,13 +73,13 @@ GET https://open.coinrobots.com/api/v1/Public/ping
 ### 2. 获取CoinRobots支持平台
 > 获取CoinRobots支持的第三方平台
 #### 请求地址
-> GET `https://open.coinrobots.com/api/v1/Public/getTerrace`
+> GET `http://open.coinrobots.com/api/v1/Public/getTerrace`
 #### 请求参数（无）
 
 #### 示例
 ```c
 # Request
-GET https://open.coinrobots.com/api/v1/Public/getTerrace
+GET http://open.coinrobots.com/api/v1/Public/getTerrace
 # Response
 {
 	"status": 0,      // 状态码
@@ -101,7 +101,7 @@ GET https://open.coinrobots.com/api/v1/Public/getTerrace
 ### 3. 获取平台支持的市场（计价币种）
 > 通过平台id获取所支持的市场（平台可用的计价币种）
 #### 请求地址
-> GET `https://open.coinrobots.com/api/v1/Public/getMarket`
+> GET `http://open.coinrobots.com/api/v1/Public/getMarket`
 #### 请求参数
 |参数名|参数类型|必填|描述|
 |:-|:-|:-|:-|
@@ -110,7 +110,7 @@ GET https://open.coinrobots.com/api/v1/Public/getTerrace
 #### 示例
 ```c
 # Request
-GET https://open.coinrobots.com/api/v1/Public/getMarket?terraceId=1
+GET http://open.coinrobots.com/api/v1/Public/getMarket?terraceId=1
 # Response
 {
 	"status": 0,      // 状态码
@@ -131,7 +131,7 @@ GET https://open.coinrobots.com/api/v1/Public/getMarket?terraceId=1
 ### 1. 用户登录验证
 > 通过手机号或者邮箱及密码验证用户是否有效
 #### 请求地址
-> POST `https://open.coinrobots.com/api/v1/User/loginVerify`
+> POST `http://open.coinrobots.com/api/v1/User/loginVerify`
 #### 请求参数
 |参数名|参数类型|必填|描述|
 |:-|:-|:-|:-|
@@ -141,7 +141,7 @@ GET https://open.coinrobots.com/api/v1/Public/getMarket?terraceId=1
 #### 示例
 ```c
 # Request
-POST https://open.coinrobots.com/api/v1/User/loginVerify
+POST http://open.coinrobots.com/api/v1/User/loginVerify
 # Response
 {
 	"status": 0,      // 状态码
@@ -155,7 +155,7 @@ POST https://open.coinrobots.com/api/v1/User/loginVerify
 ### 2. 获取用户信息
 > 通过用户id获取用户的一些信息
 #### 请求地址
-> POST `https://open.coinrobots.com/api/v1/User/getUserInfo`
+> POST `http://open.coinrobots.com/api/v1/User/getUserInfo`
 #### 请求参数
 |参数名|参数类型|必填|描述|
 |:-|:-|:-|:-|
@@ -164,7 +164,7 @@ POST https://open.coinrobots.com/api/v1/User/loginVerify
 #### 示例
 ```c
 # Request
-POST https://open.coinrobots.com/api/v1/User/getUserInfo
+POST http://open.coinrobots.com/api/v1/User/getUserInfo
 # Response
 {
 	"status": 0,    // 状态码
@@ -182,7 +182,7 @@ POST https://open.coinrobots.com/api/v1/User/getUserInfo
 ### 3. 提交手续费比例
 > 提交平台该市场（计价币种）的手续费比例，传参和加密时apiKey和secretKey默认为空
 #### 请求地址
-> POST `https://open.coinrobots.com/api/v1/User/submitPoundage`
+> POST `http://open.coinrobots.com/api/v1/User/submitPoundage`
 #### 请求参数
 > 例：OKEx平台消耗1BTC扣除0.01个ROBOT `{ "terraceId": 1, "market": "BTC", "poundage": 0.01}`
 
@@ -195,7 +195,7 @@ POST https://open.coinrobots.com/api/v1/User/getUserInfo
 #### 示例
 ```c
 # Request
-POST https://open.coinrobots.com/api/v1/User/submitPoundage
+POST http://open.coinrobots.com/api/v1/User/submitPoundage
 # Response
 {
 	"status": 0,    // 状态码
@@ -207,7 +207,7 @@ POST https://open.coinrobots.com/api/v1/User/submitPoundage
 ### 4. 扣除用户手续费
 > 用户策略成功后，根据策略的计价币种进行扣费
 #### 请求地址
-> POST `https://open.coinrobots.com/api/v1/User/deductionPoundage`
+> POST `http://open.coinrobots.com/api/v1/User/deductionPoundage`
 #### 请求参数
 |参数名|参数类型|必填|描述|
 |:-|:-|:-|:-|
@@ -220,7 +220,7 @@ POST https://open.coinrobots.com/api/v1/User/submitPoundage
 #### 示例
 ```c
 # Request
-POST https://open.coinrobots.com/api/v1/User/deductionPoundage
+POST http://open.coinrobots.com/api/v1/User/deductionPoundage
 # Response
 {
 	"status": 0,    // 状态码
