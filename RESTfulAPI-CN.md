@@ -182,7 +182,7 @@ POST https://open.coinrobots.com/api/v1/User/getUserInfo
 ### 3. 提交手续费比例
 > 提交平台该市场（计价币种）的手续费比例，传参和加密时apiKey和secretKey默认为空
 #### 请求地址
-> POST `https://open.coinrobots.com/api/v1/Deploy/submitPoundage`
+> POST `https://open.coinrobots.com/api/v1/User/submitPoundage`
 #### 请求参数
 > 例：OKEx平台消耗1BTC扣除0.01个ROBOT `{ "terraceId": 1, "market": "BTC", "poundage": 0.01}`
 
@@ -195,7 +195,7 @@ POST https://open.coinrobots.com/api/v1/User/getUserInfo
 #### 示例
 ```c
 # Request
-POST https://open.coinrobots.com/api/v1/Deploy/submitPoundage
+POST https://open.coinrobots.com/api/v1/User/submitPoundage
 # Response
 {
 	"status": 0,    // 状态码
