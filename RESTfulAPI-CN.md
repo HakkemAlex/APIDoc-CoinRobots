@@ -131,7 +131,7 @@ GET https://open.coinrobots.com/api/v1/Public/getMarket?terraceId=1
 ### 1. 用户登录验证
 > 通过手机号或者邮箱及密码验证用户是否有效
 #### 请求地址
-> GET `https://open.coinrobots.com/api/v1/User/loginVerify`
+> POST `https://open.coinrobots.com/api/v1/User/loginVerify`
 #### 请求参数
 |参数名|参数类型|必填|描述|
 |:-|:-|:-|:-|
@@ -141,7 +141,7 @@ GET https://open.coinrobots.com/api/v1/Public/getMarket?terraceId=1
 #### 示例
 ```c
 # Request
-GET https://open.coinrobots.com/api/v1/User/loginVerify?appId=1&apiKey=2&userName=3&userPwd=4&timestamp=5&sign=6
+POST https://open.coinrobots.com/api/v1/User/loginVerify
 # Response
 {
 	"status": 0,      // 状态码
@@ -155,7 +155,7 @@ GET https://open.coinrobots.com/api/v1/User/loginVerify?appId=1&apiKey=2&userNam
 ### 2. 获取用户信息
 > 通过用户id获取用户的一些信息
 #### 请求地址
-> GET `https://open.coinrobots.com/api/v1/User/getUserInfo`
+> POST `https://open.coinrobots.com/api/v1/User/getUserInfo`
 #### 请求参数
 |参数名|参数类型|必填|描述|
 |:-|:-|:-|:-|
@@ -164,7 +164,7 @@ GET https://open.coinrobots.com/api/v1/User/loginVerify?appId=1&apiKey=2&userNam
 #### 示例
 ```c
 # Request
-GET https://open.coinrobots.com/api/v1/User/getUserInfo?appId=1&apiKey=2&userId=1234&timestamp=5&sign=6
+POST https://open.coinrobots.com/api/v1/User/getUserInfo
 # Response
 {
 	"status": 0,    // 状态码
